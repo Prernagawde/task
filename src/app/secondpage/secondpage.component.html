@@ -1,0 +1,35 @@
+<nav>
+  <div class="formtitle">Form For {{title}}</div>
+</nav>
+
+<label><input type="radio" name="card" (change)="showcards('card1')"> Option 1</label>
+<label><input type="radio" name="card" (change)="showcards('card2')"> Option 2</label>
+<label><input type="radio" name="card" (change)="showcards('card3')"> Option 3</label>
+
+<div class="wrapper">
+  <div *ngIf="showcard1" class="card">Card 1</div>
+  <div *ngIf="showcard2" class="card">Card 2</div>
+  <div *ngIf="showcard3" class="card">Card 3</div>
+</div>
+
+<label><input type="checkbox" (change)="toggleCardVisibility('card1', $event)"> Show Card 1</label>
+<label><input type="checkbox" (change)="toggleCardVisibility('card2', $event)"> Show Card 2</label>
+<label><input type="checkbox" (change)="toggleCardVisibility('card3', $event)"> Show Card 3</label>
+
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div>
+    <label for="numberInput">Enter a number </label>
+    <input type="text" id="numberInput" [(ngModel)]="userInput" (input)="onInputChange()" name="numberInput"
+      #inputField="ngModel" required pattern="^[0-9]+$">
+    <div *ngIf="inputField.errors?.['required']" class="error">Input is required!</div>
+    <div *ngIf="inputField.errors?.['pattern']" class="error">Please enter a valid number!</div>
+  </div>
+
+  <div>
+    <label for="result">Squared value:</label>
+    <input type="text" id="result" [value]="result" disabled>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
