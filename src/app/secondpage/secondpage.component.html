@@ -31,5 +31,11 @@
     <input type="text" id="result" [value]="result" disabled>
   </div>
 
-  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <button type="submit" [disabled]="form.invalid"  (click)="openmodal()">Submit</button>
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <h2>✅ Form Submitted Successfully!</h2>
+      <button  (click)="closeModal()" id="modalbtn">Close</button>
+    </div>
+  </div>
 </form>

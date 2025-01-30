@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+
 import { FormsModule, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-secondpage',
@@ -16,8 +17,9 @@ export class SecondpageComponent {
   showcard3 = false;
   userInput: number = 0;
   result: number = 0;
+  showModal = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit() {
     this.route.params.subscribe((params) => (this.title = params['name']));
   }
@@ -55,5 +57,11 @@ export class SecondpageComponent {
     if (form.valid) {
       console.log('Form has been submitted!');
     }
+  }
+  openmodal() {
+    this.showModal = true;
+  }
+  closeModal() {
+    this.showModal = false;
   }
 }
