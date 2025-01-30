@@ -7,9 +7,9 @@
 <label><input type="radio" name="card" (change)="showcards('card3')"> Option 3</label>
 
 <div class="wrapper">
-  <div *ngIf="showcard1" class="card">Card 1</div>
-  <div *ngIf="showcard2" class="card">Card 2</div>
-  <div *ngIf="showcard3" class="card">Card 3</div>
+  <div *ngIf="showcard1" class="card" id="card1">Card 1</div>
+  <div *ngIf="showcard2" class="card" id="card2">Card 2</div>
+  <div *ngIf="showcard3" class="card" id="card3">Card 3</div>
 </div>
 
 <label><input type="checkbox" (change)="toggleCardVisibility('card1', $event)"> Show Card 1</label>

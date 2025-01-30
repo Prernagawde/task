@@ -30,6 +30,18 @@ nav {
   color: #333;
   transition: transform 0.3s ease;
 }
+#card1{
+  background-color: palevioletred;
+  color: white;
+}
+#card2{
+  background-color: slateblue;
+  color: white;
+}
+#card3{
+  background-color: salmon;
+  color: white;
+}
 
 .card:hover {
   transform: translateY(-5px);
