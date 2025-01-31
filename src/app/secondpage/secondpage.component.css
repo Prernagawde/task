@@ -42,6 +42,15 @@ nav {
   background-color: salmon;
   color: white;
 }
+#specialcard1 {
+  background-color: aquamarine;
+}
+#specialcard2 {
+  background-color: crimson;
+}
+#specialcard3 {
+  background-color: plum;
+}
 
 .card:hover {
   transform: translateY(-5px);

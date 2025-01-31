@@ -18,6 +18,9 @@ export class SecondpageComponent {
   userInput: number = 0;
   result: number = 0;
   showModal = false;
+  specialCard1 = false;
+  specialCard2 = false;
+  specialCard3 = false;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit() {
@@ -26,10 +29,16 @@ export class SecondpageComponent {
   showcards(selection: string) {
     if (selection === 'card1') {
       this.showcard1 = true;
+      this.showcard2 = false;
+      this.showcard3 = false;
     } else if (selection === 'card2') {
       this.showcard2 = true;
+      this.showcard1 = false;
+      this.showcard3 = false;
     } else if (selection === 'card3') {
       this.showcard3 = true;
+      this.showcard1 = false;
+      this.showcard2 = false;
     }
   }
   toggleCardVisibility(card: string, event: Event) {
@@ -42,6 +51,23 @@ export class SecondpageComponent {
       this.showcard2 = isChecked;
     } else if (card === 'card3') {
       this.showcard3 = isChecked;
+    }
+    if (this.showcard1 && this.showcard2) {
+      this.specialCard1 = true;
+      this.showcard1 = false;
+      this.showcard2 = false;
+    } else if (this.showcard1 && this.showcard3) {
+      this.specialCard2 = true;
+      this.showcard1 = false;
+      this.showcard3 = false;
+    } else if (this.showcard2 && this.showcard3) {
+      this.specialCard3 = true;
+      this.showcard3 = false;
+      this.showcard2 = false;
+    } else {
+      this.specialCard1 = false;
+      this.specialCard2 = false;
+      this.specialCard3 = false;
     }
   }
 
